@@ -1,0 +1,4 @@
+node_modules/
+*.tgz
+*.tmp.mp4
+.DS_Store

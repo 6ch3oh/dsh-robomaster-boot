@@ -1,0 +1,4 @@
+# Bundle patch for dsh-robomaster-boot.
+- insert:
+    - id: boot-robomaster
+      name: dsh-robomaster-boot

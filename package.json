@@ -1,0 +1,118 @@
+{
+  "name": "dsh-robomaster-boot",
+  "version": "1.0.0",
+  "description": "RoboMaster 机甲大师 550C 战术开机动画 DSH 插件（官方 Logo 版）：支持简易 Logo 扫描、22 秒完整实时 Canvas 引擎与 1080P 60fps 超清视频三种模式，点击或按 Esc 跳过。",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "RoboMaster Tactical Division"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "robomaster",
+    "hust-langya",
+    "550c",
+    "boot-animation",
+    "splash",
+    "开机动画",
+    "启动动画",
+    "机甲大师",
+    "华中科技大学狼牙战队"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.0-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  },
+  "dshWorkshop": {
+    "schema": "omdsh-workshop-package/v1",
+    "type": "plugin",
+    "integration": {
+      "protocol": "harness-profile",
+      "artifact": "cordis.patch.yml"
+    },
+    "install": {
+      "mode": "transactional",
+      "adapter": "profile-bundle",
+      "failurePolicy": "generation-rollback",
+      "touchesCurrentBeforeActivation": false
+    },
+    "lifecycle": {
+      "activation": "restart-profile",
+      "dispose": "supported"
+    },
+    "permissions": [
+      "web:index-inject",
+      "dom:overlay",
+      "browser:local-storage",
+      "desktop:titlebar-overlay",
+      "web:http-route"
+    ],
+    "compatibility": {
+      "dshVersions": [
+        "0.2.0-rc.1",
+        "0.2.0-rc.2"
+      ]
+    },
+    "capability": {
+      "id": "boot-splash",
+      "kind": "ui",
+      "invocation": "Boot the profile's Web GUI and inspect document.querySelector('.dshrm-official-host')",
+      "expected": "The host half's first frame covers the shell while parsing so DSH's native boot card never flashes; the client half mounts the RoboMaster 550C tactical boot animation and plays to completion."
+    },
+    "evidence": {
+      "install": null,
+      "failureIsolation": null,
+      "hotReload": null,
+      "remove": null
+    }
+  },
+  "scripts": {
+    "check": "node --check lib/client.js && node --check lib/index.js"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6ch3oh/dsh-robomaster-boot.git"
+  },
+  "homepage": "https://github.com/6ch3oh/dsh-robomaster-boot#readme",
+  "bugs": {
+    "url": "https://github.com/6ch3oh/dsh-robomaster-boot/issues"
+  }
+}
