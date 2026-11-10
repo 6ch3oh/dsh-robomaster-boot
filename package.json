@@ -1,7 +1,7 @@
 {
   "name": "dsh-robomaster-boot",
   "version": "1.0.0",
-  "description": "RoboMaster 机甲大师 550C 战术开机动画 DSH 插件（官方 Logo 版）：支持简易 Logo 扫描、22 秒完整实时 Canvas 引擎与 1080P 60fps 超清视频三种模式，点击或按 Esc 跳过。",
+  "description": "RoboMaster 机甲大师战术全息开机动画 DSH 插件（官方 Logo 版）：借鉴网络爆火 550C DSH 开机动画与《红色警戒》主页全息投影动画，涵盖 7 大兵种赛场名场面与机械/硬件/电控/视觉四大组别 14 个硬核工程窗口。",
   "type": "module",
   "main": "./lib/index.js",
   "exports": {
@@ -94,7 +94,7 @@
       "id": "boot-splash",
       "kind": "ui",
       "invocation": "Boot the profile's Web GUI and inspect document.querySelector('.dshrm-official-host')",
-      "expected": "The host half's first frame covers the shell while parsing so DSH's native boot card never flashes; the client half mounts the RoboMaster 550C tactical boot animation and plays to completion."
+      "expected": "The host half's first frame covers the shell while parsing so DSH's native boot card never flashes; the client half mounts the RoboMaster tactical holographic boot animation and plays to completion."
     },
     "evidence": {
       "install": null,
